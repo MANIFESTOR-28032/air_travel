@@ -14,7 +14,7 @@ class TariffDetailItem extends StatelessWidget {
     required this.leaders,
   });
 
-  final String price, OldPrice, plane, bus, medical, leaders,tariffs;
+  final String price, OldPrice, plane, bus, medical, leaders, tariffs;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +22,7 @@ class TariffDetailItem extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
+          clipBehavior: Clip.none,
           padding: EdgeInsets.symmetric(horizontal: 8),
           width: 189,
           height: 263,
@@ -100,25 +101,28 @@ class TariffDetailItem extends StatelessWidget {
         ),
         Positioned(
           top: -14.5,
-          left: 51.5,
-          child: Container(
-            width: 86,
-            height: 29,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(
-                color: AppColors.GreenMain,
-                width: 1,
+          left: 0,
+          right: 0,
+          child: Center(
+            child: Container(
+              width: 86,
+              height: 29,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(
+                  color: AppColors.GreenMain,
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(10),
               ),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              tariffs,
-              style: TextStyle(
-                color: AppColors.GreenMain,
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
+              alignment: Alignment.center,
+              child: Text(
+                tariffs,
+                style: TextStyle(
+                  color: AppColors.GreenMain,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
           ),

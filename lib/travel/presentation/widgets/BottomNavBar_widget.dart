@@ -18,11 +18,15 @@ class _BottomNavBarItemState extends State<BottomNavBarItem> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          BottomNavbarSvgItem(svg: "home.svg", text: "Home"),
+          GestureDetector(
+              onTap: () {},
+              child: BottomNavbarSvgItem(svg: "home.svg", text: "Home")),
           BottomNavbarSvgItem(svg: "cart.svg", text: "Cart"),
           BottomNavbarSvgItem(svg: "orders.svg", text: "Orders"),
           BottomNavbarSvgItem(svg: "wallet.svg", text: "Wallet"),
-          BottomNavbarSvgItem(svg: "profile.svg", text: "Profile"),
+          GestureDetector(
+              onTap: () {},
+              child: BottomNavbarSvgItem(svg: "profile.svg", text: "Profile")),
         ],
       ),
     );

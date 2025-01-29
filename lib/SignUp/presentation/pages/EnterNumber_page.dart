@@ -7,7 +7,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class EnterNumberPage extends StatelessWidget {
-  const EnterNumberPage({super.key});
+   EnterNumberPage({super.key});
+  late String PhoneNumber;
+  var controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +68,7 @@ class EnterNumberPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
+                PhoneNumber = controller.value.text;
                 context.go('/enter_the_code');
               },
               style: ButtonStyle(

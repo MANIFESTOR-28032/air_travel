@@ -2,7 +2,10 @@ import 'package:air_travel/utils/AppColors.dart';
 import 'package:flutter/material.dart';
 
 class TextFieldItem extends StatelessWidget {
-  const TextFieldItem({super.key, required this.text});
+  const TextFieldItem(
+      {super.key,
+      required this.text,
+      required TextEditingController controller});
 
   final String text;
 

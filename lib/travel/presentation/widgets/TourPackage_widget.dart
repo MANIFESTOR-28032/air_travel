@@ -7,6 +7,7 @@ import 'package:air_travel/travel/presentation/widgets/TravelDay_widget.dart';
 import 'package:air_travel/utils/AppColors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class TourPackageItem extends StatelessWidget {
   const TourPackageItem({super.key});
@@ -38,6 +39,7 @@ class TourPackageItem extends StatelessWidget {
             ),
             FavoritesTextsItem(text: "Umra Safari"),
             Row(
+              spacing: 10,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 TravelDayItem_widget(
@@ -45,7 +47,6 @@ class TourPackageItem extends StatelessWidget {
                   text: "KUN",
                   where: "Madinada",
                 ),
-                SizedBox(width: 10),
                 TravelDayItem_widget(
                   day: "5",
                   text: "KUN",
@@ -58,14 +59,10 @@ class TourPackageItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 TravelComposition(text: "Sug'urta"),
-                // SizedBox(width: 3),
                 TravelComposition(text: "Chipta"),
-                // SizedBox(width: 3),
                 TravelComposition(text: "Aviachipta"),
-                // SizedBox(width: 3),
                 TravelComposition(text: "Viza"),
                 OpenMoreItem(text: "6 +"),
-                // SizedBox(width: 3),
               ],
             ),
             FavoritesTextsItem(text: "Tariflar"),
@@ -74,6 +71,7 @@ class TourPackageItem extends StatelessWidget {
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
+                  spacing: 25,
                   children: [
                     TariffsItem(
                       tariff: "Ekonom",
@@ -83,7 +81,6 @@ class TourPackageItem extends StatelessWidget {
                       FirstComposition: "Transport Xizmati",
                       SecondComposition: "Nonushta",
                     ),
-                    SizedBox(width: 25),
                     TariffsItem(
                       tariff: "Standart",
                       price: "1400\$",
@@ -92,7 +89,6 @@ class TourPackageItem extends StatelessWidget {
                       FirstComposition: "Transport Xizmati",
                       SecondComposition: "Nonushta",
                     ),
-                    SizedBox(width: 25),
                     TariffsItem(
                       tariff: "Premium",
                       price: "1800\$",
@@ -111,20 +107,25 @@ class TourPackageItem extends StatelessWidget {
               color: Colors.grey.withValues(alpha: 0.5),
             ),
             SizedBox(height: 8),
-            Container(
-              width: 274,
-              height: 30,
-              decoration: BoxDecoration(
-                color: AppColors.GreenMain,
-                borderRadius: BorderRadius.circular(100),
-              ),
-              alignment: Alignment.center,
-              child: Text(
-                "Batafsil...",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 16,
+            GestureDetector(
+              onTap: () {
+                context.go('/detail');
+              },
+              child: Container(
+                width: 274,
+                height: 30,
+                decoration: BoxDecoration(
+                  color: AppColors.GreenMain,
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                alignment: Alignment.center,
+                child: Text(
+                  "Batafsil...",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ),

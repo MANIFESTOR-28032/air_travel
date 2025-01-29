@@ -92,14 +92,9 @@ class _HomeViewState extends State<HomeView> {
                         image: "TravelAssets/images/places/paris.png",
                         text: "Parij",
                       ),
-                      GestureDetector(
-                        onTap: (){
-                          context.go('/details');
-                        },
-                        child: PopularPlaces(
-                          image: "TravelAssets/images/places/makka.png",
-                          text: "Makka",
-                        ),
+                      PopularPlaces(
+                        image: "TravelAssets/images/places/makka.png",
+                        text: "Makka",
                       ),
                       PopularPlaces(
                         image: "TravelAssets/images/places/malayziya.png",

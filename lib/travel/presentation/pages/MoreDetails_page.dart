@@ -42,6 +42,7 @@ class MoreDetails extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 13, left: 13, bottom: 100),
             child: Column(
+              spacing: 16,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ShortinfoContainerItem(
@@ -49,8 +50,8 @@ class MoreDetails extends StatelessWidget {
                   info:
                       "Viza, Aviachiptalar, Transferlar, Mehmonxonalar (4 va 5 yulduzli), Ovqat (2 mahal milliy taom), Ekskursiyalar, Transport xizmati, Zamzam suvi (5 litr)",
                 ),
-                SizedBox(height: 15),
                 Row(
+                  spacing: 10,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     TravelDayItem_widget(
@@ -58,7 +59,6 @@ class MoreDetails extends StatelessWidget {
                       text: "KUN",
                       where: "Madinada",
                     ),
-                    SizedBox(width: 10),
                     TravelDayItem_widget(
                       day: "5",
                       text: "KUN",
@@ -66,9 +66,7 @@ class MoreDetails extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
                 FavoritesTextsItem(text: "Sayohat tarkibi"),
-                SizedBox(height: 10),
                 Row(
                   children: [
                     TravelComposition(text: "Sug'urta"),
@@ -80,16 +78,13 @@ class MoreDetails extends StatelessWidget {
                     TravelComposition(text: "Viza"),
                   ],
                 ),
-                SizedBox(height: 16),
                 FavoritesTextsItem(text: "Sayohat kundaligi"),
-                SizedBox(height: 16),
                 TravelDiarItem(),
-                SizedBox(height: 16),
                 FavoritesTextsItem(text: "Tariflar"),
-                SizedBox(height: 23),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
+
                     spacing: 40,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -118,12 +113,11 @@ class MoreDetails extends StatelessWidget {
                         price: "2000＄",
                         OldPrice: "1800＄",
                         plane:
-                        "To'g'ridan-to'g'ri reys Toshkent Jidda Toshkent ",
+                            "To'g'ridan-to'g'ri reys Toshkent Jidda Toshkent ",
                         bus: "Zamonaviy va qulay avtobuslar",
                         medical: "Tibbiy sug’urta",
                         leaders: "Tajribali yo’l boshchi",
                       ),
-
                     ],
                   ),
                 ),

@@ -11,7 +11,6 @@ class TravelDayItem_widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 108,
       height: 25,
       decoration: BoxDecoration(
         border: Border.all(
@@ -66,6 +65,7 @@ class TravelDayItem_widget extends StatelessWidget {
               fontSize: 14,
             ),
           ),
+          SizedBox(width: 3),
         ],
       ),
     );

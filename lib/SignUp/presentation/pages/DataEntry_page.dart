@@ -1,7 +1,10 @@
+import 'package:air_travel/SignUp/presentation/widgets/ProfileImageSelector_widget.dart';
 import 'package:air_travel/SignUp/presentation/widgets/TextField_widget.dart';
 import 'package:air_travel/SignUp/presentation/widgets/appBar_SignUp_widget.dart';
+import 'package:air_travel/travel/data/models/register_view_model.dart';
 import 'package:air_travel/utils/AppColors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class DataEntryPage extends StatefulWidget {
@@ -12,6 +15,13 @@ class DataEntryPage extends StatefulWidget {
 }
 
 class _DataEntryPageState extends State<DataEntryPage> {
+  late String name, surname, number, my_province;
+
+  var controller = TextEditingController();
+  var nameController = TextEditingController();
+  var surnameController = TextEditingController();
+  var numberController = TextEditingController();
+  var regionController = TextEditingController();
   String? selected_region;
   final List<String> regions = [
     'Toshkent',
@@ -28,6 +38,7 @@ class _DataEntryPageState extends State<DataEntryPage> {
     'Sirdaryo',
     'Qoraqalpog‘iston',
   ];
+  // final RegisterViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {
@@ -45,50 +56,45 @@ class _DataEntryPageState extends State<DataEntryPage> {
             Column(
               spacing: 24,
               children: [
-                Center(
-                  child: CircleAvatar(
-                    backgroundColor: Colors.grey.withValues(alpha: 0.2),
-                    radius: 70,
-                    child: Icon(
-                      color: Colors.grey.withValues(alpha: 0.5),
-                      Icons.person,
-                      size: 50,
-                    ),
-                  ),
+                ProfileimageselectorItem(viewModel: RegisterViewModel()),
+                TextFieldItem(text: 'Ismingiz', controller: nameController),
+                TextFieldItem(
+                  text: 'Familyangiz',
+                  controller: surnameController,
                 ),
-                TextFieldItem(text: 'Ismingiz'),
-                TextFieldItem(text: 'Familyangiz'),
-                TextFieldItem(text: '+998 33 033-51-33'),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xff0ffFAFAFA),
+                TextFieldItem(
+                  text: '+998 33 033-51-33',
+                  controller: numberController,
+                ),
+                DropdownMenu<String>(
+                  width: double.infinity,
+                  hintText: "Viloyatlar",
+                  textStyle: TextStyle(
+                    color: Colors.grey.withValues(alpha: 0.8),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
                   ),
-                  child: DropdownMenu<String>(
-                    width: double.infinity,
-                    hintText: "Viloyatlar",
-                    textStyle: TextStyle(
-                      color: Colors.grey.withValues(alpha: 0.8),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    initialSelection: selected_region,
-                    dropdownMenuEntries: regions.map((region) {
-                      return DropdownMenuEntry(
-                        value: region,
-                        label: region,
-                      );
-                    }).toList(),
-                    onSelected: (YangiTanlov) {
-                      setState(() {
-                        selected_region = YangiTanlov;
-                      });
-                    },
-                  ),
+                  initialSelection: selected_region,
+                  dropdownMenuEntries: regions.map((region) {
+                    return DropdownMenuEntry(
+                      value: region,
+                      label: region,
+                    );
+                  }).toList(),
+                  onSelected: (YangiTanlov) {
+                    setState(() {
+                      regionController =
+                          controller.value.text as TextEditingController;
+                      selected_region = YangiTanlov;
+                    });
+                  },
                 ),
               ],
             ),
             ElevatedButton(
               onPressed: () {
+                name = controller.value.text;
+                surname = controller.value.text;
                 context.go('/home');
               },
               style: ButtonStyle(

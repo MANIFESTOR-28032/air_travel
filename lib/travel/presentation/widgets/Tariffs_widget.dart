@@ -63,7 +63,6 @@ class TariffsItem extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 Text(
                   text,
                   style: TextStyle(
